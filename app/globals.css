@@ -1,9 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 @layer utilities {
@@ -75,4 +97,10 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.maintext {
+  color : transparent;
+  background-clip: text;
+  background-image: linear-gradient(90deg, rgb(0, 255, 225), rgb(0, 30, 255));
 }
