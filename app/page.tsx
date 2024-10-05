@@ -3,27 +3,33 @@ import { useEffect } from "react";
 import NavBar from "@/components/Navbar";
 import Lenis from "lenis";
 import MainPage from "@/components/MainPage";
+import SecondPage from "@/components/secondpage";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
+
     lenis.on("scroll", () => {});
-    function raf(time : number ) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => {
-      lenis.destroy();
-    };
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
   }, []);
 
   return (
     <>
       <div className="h-screen w-full bg-[#000000] text-white">
         <NavBar />
-        <MainPage/>
+        <MainPage />
       </div>
+      <SecondPage />
     </>
   );
 }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,7 +101,6 @@ html.lenis body {
 }
 
 .maintext {
-  color : transparent;
+  color: transparent;
   background-clip: text;
-  background-image: linear-gradient(90deg, rgb(0, 255, 225), rgb(0, 30, 255));
 }
