@@ -6,21 +6,21 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SecondPage() {
-  // useGSAP(() => {
-  //   gsap.to(".main", {
-  //     backgroundColor: "#6625b1",
-  //     scrollTrigger: {
-  //       trigger: ".main",
-  //       start: "top 40%",
-  //       end: "top 0% ",
-  //       scrub: 1,
-  //       // markers: true,
-  //     },
-  //     onComplete: () => {
-  //       console.log("Animation completed");
-  //     },
-  //   });
-  // });
+  useGSAP(() => {
+    gsap.to(".main", {
+      backgroundColor: "#6625b1",
+      scrollTrigger: {
+        trigger: ".main",
+        start: "top 40%",
+        end: "top 0% ",
+        scrub: 1,
+        // markers: true,
+      },
+      onComplete: () => {
+        console.log("Animation completed");
+      },
+    });
+  });
 
   return (
     <div className="main h-[100vh] w-full bg-[#000] text-white flex overflow-hidden ">

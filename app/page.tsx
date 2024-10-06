@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-screen w-full bg-[#000000] text-white">
+      <div className="h-screen w-full text-white">
         <NavBar />
         <MainPage />
       </div>
