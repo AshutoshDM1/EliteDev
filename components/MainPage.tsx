@@ -32,14 +32,17 @@ export default function MainPage() {
         <motion.main
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 1 }}
-          className="h-[100vh] w-full absolute top-0 z-[-10] overflow-hidden bg-[#6625b1] "
+          transition={{ duration: 2, delay: 4 }}
+          className="h-[100vh] w-full absolute top-0 z-[-10] overflow-hidden "
         >
-          <Spline scene="https://prod.spline.design/U4zNUzQlTabiUODc/scene.splinecode" />
+          <Spline scene="https://prod.spline.design/EUcUVMhW8ulB948O/scene.splinecode" />
         </motion.main>
         <motion.div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden flex ">
             <motion.h1
+              initial={{ opacity: 0, y: 250 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 2 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
@@ -53,6 +56,9 @@ export default function MainPage() {
           <div className="overflow-hidden">
             {" "}
             <motion.h1
+              initial={{ opacity: 0, y: 250 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2, delay: 2.5 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,

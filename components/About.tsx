@@ -1,43 +1,27 @@
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Spline from "@splinetool/react-spline/next";
 import { motion } from "framer-motion";
+import Marquee from "./Marquee";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SecondPage() {
-  useGSAP(() => {
-    gsap.to(".main", {
-      backgroundColor: "#6625b1",
-      scrollTrigger: {
-        trigger: ".main",
-        start: "top 40%",
-        end: "top 0% ",
-        scrub: 1,
-        // markers: true,
-      },
-      onComplete: () => {
-        console.log("Animation completed");
-      },
-    });
-  });
-
   return (
-    <div className="main h-[100vh] w-full bg-[#000] text-white flex overflow-hidden ">
-      <div className="h-full max-w-[50rem] ml-auto  flex flex-col items-start justify-center p-[2vh] relative z-[10] ">
+    <div className="page2 h-[100vh] w-full text-white flex overflow-hidden ">
+      <div className="h-full max-w-[50rem] ml-auto flex flex-col items-start justify-center p-[2vh] relative z-[10] ">
         <h1 className="text-white w-fit text-[4.5rem] font-[Asap] font-[800] ">
-          Hey Y'll I'M Ashutosh
+          Hey Y&apos;ll I&apos;M Ashutosh
         </h1>
         <div className="flex flex-col items-start justify-center ">
           <h1 className="text-[1.5rem] break-words  font-[Asap] font-[800]">
-            I'm a{" "}
+            I&apos;m a{" "}
             <span className="text-[#b6b6b6] text- font-[Asap] font-[800] ">
               Full Stack WebDeveloper
             </span>{" "}
-            that's ready to help
+            that&apos;s ready to help
           </h1>
           <h1 className="text-[1.5rem] font-[Asap] font-[800] ">
-            you make the experiences you've been missing!
+            you make the experiences you&apos;ve been missing!
           </h1>
           <h1 className="text-[1.5rem] font-[Asap] font-[800] text-start flex justify-start items-center ">
             <span className="text-[#9f2ed3] px-2 text-[2.5rem] pt-3 ">*</span>
@@ -60,10 +44,20 @@ export default function SecondPage() {
               </svg>
             </span>
           </button>
+          <h1 className="text-[1.7rem] font-[Asap] font-[800] py-[3vh] px-5 ">
+            I&apos;ve worked with
+          </h1>
         </div>
+        <Marquee />
       </div>
       <div className="h-full w-[50%] flex items-start justify-start relative z-[30]  ">
         <motion.div
+          style={{
+            maskImage:
+              "linear-gradient(from bottom, transparent, black, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent, black, transparent)",
+          }}
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, delay: 1 }}
