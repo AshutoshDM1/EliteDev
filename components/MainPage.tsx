@@ -25,7 +25,7 @@ export default function MainPage() {
   }, []);
   return (
     <>
-      <div className="h-[94vh] flex flex-col justify-center items-center relative z-10 overflow-hidden ">
+      <div className="h-[94vh] flex flex-col justify-center items-center relative z-10 overflow-hidden text-center text-[2.5rem] md:text-[4.3rem] ">
         <motion.div>
           <div className="overflow-hidden flex ">
             <motion.h1
@@ -37,7 +37,7 @@ export default function MainPage() {
                 fontWeight: 800,
                 textShadow: "rgba(255, 255, 255, 0.4) 0px 0px 8px",
               }}
-              className="text-[4.3rem] text-center text-white font-bold"
+              className=" text-center text-white font-bold"
             >
               Turning ideas into
             </motion.h1>
@@ -53,7 +53,7 @@ export default function MainPage() {
                 fontWeight: 800,
                 textShadow: "rgba(255, 255, 255, 0.3) 0px 0px 6px",
               }}
-              className="text-[4.3rem] text-center text-white font-bold"
+              className=" text-center text-white font-bold"
             >
               <span className="maintext mr-5  ">creative</span>
               solutions.

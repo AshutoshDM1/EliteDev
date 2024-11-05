@@ -1,5 +1,7 @@
 import { useGSAP } from "@gsap/react";
+import { useInView, motion } from "framer-motion";
 import gsap from "gsap";
+import { useRef } from "react";
 export default function Portfolio() {
   const projects = [
     {
@@ -46,20 +48,50 @@ export default function Portfolio() {
       },
     });
   });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.1 });
+  const text = "Portfolio";
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        duration: 1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -100 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <>
-      <div className="page3 min-h-screen w-full p-[3vh] ">
+      <div className="page3 min-h-screen w-full p-[1vh] md:p-[3] ">
         <div className="flex flex-col justify-center items-start h-[30%] max-w-[85%] mx-auto ">
-          <div className="Animatedheading text-white font-[Asap] font-bold text-[6rem] italic uppercase flex overflow-hidden ">
-            <h1>P</h1>
-            <h1>o</h1>
-            <h1>r</h1>
-            <h1>t</h1>
-            <h1>f</h1>
-            <h1>l</h1>
-            <h1>i</h1>
-            <h1>o</h1>
-          </div>
+          <motion.h1
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="text-white font-[Asap] font-bold text-[3.5rem] md:text-[6rem] italic uppercase "
+          >
+            {text.split("").map((word) => {
+              return (
+                <motion.span variants={itemVariants} key={word}>
+                  {word}
+                </motion.span>
+              );
+            })}
+          </motion.h1>
           <h1 className="text-white font-[Asap] font-bold text-[2rem] ">
             Take a look at some of my work!
           </h1>

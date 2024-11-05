@@ -4,15 +4,15 @@ import Spline from "@splinetool/react-spline";
 
 export default function SecondPage() {
   return (
-    <div className="page2 h-[100vh] w-full text-white flex overflow-hidden ">
-      <div className="h-full max-w-[50rem] ml-auto flex flex-col items-start justify-center p-[2vh] relative z-[10] ">
-        <h1 className="text-white w-fit text-[4.5rem] font-[Asap] font-[800] ">
+    <div className="page2 min-h-[100vh] 2xl:h-[100vh] w-full text-white flex overflow-hidden flex-col-reverse 2xl:flex-row ">
+      <div className="h-full w-full md:max-w-[70rem] 2xl:max-w-[50rem] ml-auto flex flex-col items-start 2xl:items-start  justify-center p-[2vh] relative z-[10] ">
+        <h1 className="text-white w-fit text-[3.5rem] md:text-[4.5rem] font-[Asap] font-[800] ">
           Hey Y&apos;ll I&apos;M Ashutosh
         </h1>
         <div className="flex flex-col items-start justify-center ">
           <h1 className="text-[1.5rem] break-words  font-[Asap] font-[800]">
             I&apos;m a{" "}
-            <span className="text-[#b6b6b6] text- font-[Asap] font-[800] ">
+            <span className="text-[#b6b6b6]  font-[Asap] font-[800] ">
               Full Stack WebDeveloper
             </span>{" "}
             that&apos;s ready to help
@@ -47,7 +47,7 @@ export default function SecondPage() {
         </div>
         <Marquee />
       </div>
-      <div className="h-full w-[50%] flex items-start justify-start relative z-[30]  ">
+      <div className="h-[70vh] md:h-[100vh] w-full 2xl:w-[50%] flex items-start justify-start  overflow-hidden  ">
         <motion.div
           style={{
             maskImage:
@@ -58,7 +58,7 @@ export default function SecondPage() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, delay: 1 }}
-          className="h-full w-full left-0 top-[7%] relative "
+          className="h-full w-full flex relative top-[8vh] justify-center items-center 2xl:justify-start 2xl:items-start"
         >
           <Spline scene="https://prod.spline.design/jAfKvFgwoo8SV2ez/scene.splinecode" />
         </motion.div>

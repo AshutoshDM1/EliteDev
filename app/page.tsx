@@ -11,6 +11,7 @@ import Lenis from "lenis";
 import Scene from "@/components/Scene";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Svg from "@/components/svg";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -57,33 +58,15 @@ export default function Home() {
       }
     );
     tl.to(".main", {
-      background:
-        "linear-gradient(60deg, #000000 20%, #373737 30%, #000000 55%)",
-      duration: 4,
+      background: "#6625b1",
+      ease: "power1.inOut",
       scrollTrigger: {
-        trigger: ".page2",
+        trigger: ".page3",
         start: "top 40%",
-        end: "top 0%",
-        scrub: 3,
+        end: "top 0% ",
+        scrub: 1,
       },
     });
-    tl.fromTo(
-      ".main",
-      {
-        background:
-          "linear-gradient(60deg, #000000 20%, #373737 30%, #000000 55%)",
-      },
-      {
-        background: "#6625b1",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".page3",
-          start: "top 40%",
-          end: "top 0% ",
-          scrub: 1,
-        },
-      }
-    );
     tl.fromTo(
       ".main",
       { background: "#6625b1" },
@@ -119,10 +102,9 @@ export default function Home() {
           transition={{ duration: 2, delay: 4 }}
           className="spline"
         >
-          <Scene />
         </motion.main>
       </div>
-      <div className="relative top-0 left-0  text-white z-10 ">
+      <div className="w-full relative top-0 left-0  text-white z-10 ">
         <NavBar />
         <MainPage />
         <SecondPage />
