@@ -11,7 +11,7 @@ import Lenis from "lenis";
 import Scene from "@/components/Scene";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Svg from "@/components/svg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
