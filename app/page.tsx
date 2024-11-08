@@ -11,14 +11,19 @@ import Lenis from "lenis";
 import Scene from "@/components/Scene";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Spline from "@splinetool/react-spline/next";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useEffect(() => {
-    const lenis = new Lenis();
-
-    lenis.on("scroll", () => {});
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      wheelMultiplier: 1.2,
+      touchMultiplier: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -27,6 +32,11 @@ export default function Home() {
     });
 
     gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      lenis.destroy();
+      gsap.ticker.remove(lenis.raf);
+    };
   }, []);
 
   useGSAP(() => {
@@ -102,6 +112,7 @@ export default function Home() {
           transition={{ duration: 2, delay: 4 }}
           className="spline"
         >
+          {/* <Spline scene="https://prod.spline.design/lpbeU26o942idhaR/scene.splinecode" /> */}
         </motion.main>
       </div>
       <div className="w-full relative top-0 left-0  text-white z-10 ">

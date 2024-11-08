@@ -60,7 +60,7 @@ export default function SecondPage() {
           transition={{ duration: 2, delay: 1 }}
           className="h-full w-full flex relative top-[8vh] justify-center items-center 2xl:justify-start 2xl:items-start"
         >
-          <Spline scene="https://prod.spline.design/jAfKvFgwoo8SV2ez/scene.splinecode" />
+          {/* <Spline scene="https://prod.spline.design/jAfKvFgwoo8SV2ez/scene.splinecode" /> */}
         </motion.div>
       </div>
     </div>

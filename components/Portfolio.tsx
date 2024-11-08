@@ -32,22 +32,7 @@ export default function Portfolio() {
         "This is A Full Stack Site Made in React + Express with JWT Auth , Mongo , etc",
     },
   ];
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.from(".Animatedheading h1", {
-      y: 200,
-      stagger: 0.2,
-      duration: 0.5,
-      ease: "elastic.out(1,0.8)",
-      scrollTrigger: {
-        trigger: ".page3",
-        start: "top 80%",
-        end: "top -10%",
-        scrub: 1,
-        fastScrollEnd: true,
-      },
-    });
-  });
+
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.1 });
   const text = "Portfolio";
