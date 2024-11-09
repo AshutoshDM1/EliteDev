@@ -19,7 +19,7 @@ export default function Connect() {
         >
           <div className="min-h-[15vh] w-full flex flex-col justify-center items-center ">
             <motion.h1
-              className="text-[#706B66] font-semibold text-[1.7rem] text-center"
+              className="text-white connecth1 font-semibold text-[1.7rem] text-center"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}

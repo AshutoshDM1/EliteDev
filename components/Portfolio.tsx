@@ -1,6 +1,4 @@
-import { useGSAP } from "@gsap/react";
 import { useInView, motion } from "framer-motion";
-import gsap from "gsap";
 import { useRef } from "react";
 export default function Portfolio() {
   const projects = [
@@ -35,7 +33,6 @@ export default function Portfolio() {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const text = "Portfolio";
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -60,7 +57,7 @@ export default function Portfolio() {
 
   return (
     <>
-      <div className="page3 min-h-screen w-full p-[1vh] md:p-[3] ">
+      <div className="page3 min-h-screen w-full p-[20vh] md:p-[3] ">
         <div className="flex flex-col justify-center items-start h-[30%] max-w-[85%] mx-auto ">
           <motion.h1
             ref={ref}
@@ -69,7 +66,7 @@ export default function Portfolio() {
             variants={containerVariants}
             className="text-white font-[Asap] font-bold text-[3.5rem] md:text-[6rem] italic uppercase "
           >
-            {text.split("").map((word) => {
+            {"Portfolio".split("").map((word) => {
               return (
                 <motion.span variants={itemVariants} key={word}>
                   {word}

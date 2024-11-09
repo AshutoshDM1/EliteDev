@@ -26,12 +26,12 @@ export default function MainPage() {
   return (
     <>
       <div className="h-[94vh] flex flex-col justify-center items-center relative z-10 overflow-hidden text-center text-[2.5rem] md:text-[4.3rem] ">
-        <motion.div>
+        <motion.div  className="pt-[25vh]" >
           <div className="overflow-hidden flex ">
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 0.5 }}
+              transition={{ duration: 2, delay: 4 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
@@ -47,7 +47,7 @@ export default function MainPage() {
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 1 }}
+              transition={{ duration: 2, delay: 4.5 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
