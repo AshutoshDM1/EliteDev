@@ -26,7 +26,7 @@ export default function MainPage() {
   return (
     <>
       <div className="h-[94vh] flex flex-col justify-center items-center relative z-10 overflow-hidden text-center text-[2.5rem] md:text-[4.3rem] ">
-        <motion.div  className="pt-[25vh]" >
+        <motion.div  className="" >
           <div className="overflow-hidden flex ">
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
