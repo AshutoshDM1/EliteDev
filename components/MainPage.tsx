@@ -25,13 +25,13 @@ export default function MainPage() {
   }, []);
   return (
     <>
-      <div className="h-[94vh] flex flex-col justify-center items-center relative z-10 overflow-hidden text-center text-[2.5rem] md:text-[4.3rem] ">
-        <motion.div  className="" >
-          <div className="overflow-hidden flex ">
+      <div className="h-[94vh] w-full flex flex-col justify-center items-center relative z-10 overflow-hidden text-center ">
+        <motion.div className="flex flex-col justify-center items-center">
+          <div className="overflow-hidden flex text-[2.5rem] md:text-[80px] font-[800]  ">
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 4 }}
+              transition={{ duration: 2, delay: 7 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
@@ -42,12 +42,12 @@ export default function MainPage() {
               Turning ideas into
             </motion.h1>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden text-[2.5rem] md:text-[80px] font-[800]  ">
             {" "}
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 4.5 }}
+              transition={{ duration: 2, delay: 8 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
@@ -57,6 +57,17 @@ export default function MainPage() {
             >
               <span className="maintext mr-5  ">creative</span>
               solutions.
+            </motion.h1>
+          </div>
+          <div className="w-[50%] ">
+            <motion.h1
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: .7, delay: 9.5 }}
+              className="w-full text-[#888888] text-[18px] font-[400]"
+            >
+              {" "}
+              Innovative web developer crafting unique user experiences.
             </motion.h1>
           </div>
         </motion.div>

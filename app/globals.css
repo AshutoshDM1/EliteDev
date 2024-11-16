@@ -150,3 +150,42 @@ html.lenis body {
     @apply bg-background text-foreground;
   }
 }
+
+.logo-path {
+  fill: transparent;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 2;
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation-name: drawAndFill;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes drawAndFill {
+  /* First 4 seconds: draw the stroke */
+  0% {
+    stroke-dashoffset: 1500;
+    fill: transparent;
+  }
+  80% {
+    fill: transparent;
+    stroke-dashoffset: 800;
+  }
+  90% {
+    stroke-dashoffset: 800;
+    fill: #393939;
+  }
+  /* Complete fill over final 2 seconds */
+  100% {
+    stroke-dashoffset: 0;
+    fill: rgb(0, 0, 0);
+  }
+}
+
+.boll {
+  background-color: rgb(255, 255, 255);
+  mix-blend-mode: exclusion;
+}

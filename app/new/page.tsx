@@ -1,10 +1,10 @@
-import DynamicSvg from "@/components/DynamicSvg";
+import LogoSvg from "@/components/LogoSvg";
 
 export default function Scene() {
   return (
     <>
-      <div className="h-[200vh] w-full">
-        <DynamicSvg />
+      <div className="h-[100vh] w-full flex justify-center items-center bg-white ">
+      <LogoSvg />
       </div>
     </>
   );

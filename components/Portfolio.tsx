@@ -57,14 +57,20 @@ export default function Portfolio() {
 
   return (
     <>
-      <div className="page3 min-h-screen w-full p-[20vh] md:p-[3] ">
-        <div className="flex flex-col justify-center items-start h-[30%] max-w-[85%] mx-auto ">
+      <div
+        className="page3 min-h-[100vh] w-full pt-[10vh] md:p-[3] "
+      >
+        <div
+          data-scroll
+          data-scroll-speed="-5"
+          className="flex flex-col justify-center items-start h-[30%] max-w-[85%] mx-auto "
+        >
           <motion.h1
             ref={ref}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={containerVariants}
-            className="text-white font-[Asap] font-bold text-[3.5rem] md:text-[6rem] italic uppercase "
+            className="text-black font-[Asap] font-bold text-[3.5rem] md:text-[6rem] italic uppercase "
           >
             {"Portfolio".split("").map((word) => {
               return (
@@ -74,10 +80,10 @@ export default function Portfolio() {
               );
             })}
           </motion.h1>
-          <h1 className="text-white font-[Asap] font-bold text-[2rem] ">
+          <h1 className="text-[#5c5c5c] font-[Asap] font-semibold text-[2rem] ">
             Take a look at some of my work!
           </h1>
-          <h1 className="text-[#b0b0b0] font-[Asap] font-semibold text-[1.2rem] ">
+          <h1 className="text-[#5c5c5c] font-[Asap] font-semibold text-[1.2rem] ">
             Explore experiences crafted with precision and passion, aimed at
             delivering seamless experiences that are always fun and effective.
           </h1>
@@ -86,7 +92,7 @@ export default function Portfolio() {
           {projects.map((item) => {
             return (
               <>
-                <div key={item.title} className="h-[50vh] w-[60vh]">
+                <div key={item.title} className="h-[50vh] w-[60vh] text-[#383838]">
                   <img
                     className="object-cover h-[70%] w-full border-[2px] border-[#b0b0b0] rounded-[15px] overflow-hidden"
                     alt="This is a placeholder image."
@@ -94,13 +100,13 @@ export default function Portfolio() {
                     width={400}
                     src={item.imageurl}
                   ></img>
-                  <h1 className="text-[#ffffff] font-[Asap] font-bold text-[2rem] italic uppercase px-3 ">
+                  <h1 className="font-[Asap] font-bold text-[2rem] italic uppercase px-3 ">
                     {item.title}
                   </h1>
-                  <h1 className="text-[#d5c0ff] font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
+                  <h1 className="font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
                     {item.Line1}{" "}
                   </h1>
-                  <h1 className="text-[#d5c0ff] font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
+                  <h1 className="font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
                     {item.Line2}
                   </h1>
                 </div>

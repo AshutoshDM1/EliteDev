@@ -40,7 +40,10 @@ const DynamicSvg = () => {
 
   const getVerticaLinePath = (x: number) => {
     const xPos = x * dimensions.width;
-    return `M ${xPos} ${dimensions.centerY} L ${xPos} 0 M ${xPos} ${dimensions.centerY} L ${xPos} ${dimensions.height}`;
+    return {
+      top: `M ${xPos} ${dimensions.centerY} L ${xPos} 0`,
+      bottom: `M ${xPos} ${dimensions.centerY} L ${xPos} ${dimensions.height}`,
+    };
   };
 
   // Fixed polygon paths to create perfect V shape
@@ -61,28 +64,36 @@ const DynamicSvg = () => {
   `;
   const svg = useRef<SVGSVGElement | null>(null);
   useGSAP(() => {
-    gsap.to(".mainsvg", {
+    // Animate the vertical lines first
+    gsap.to([".line-top", ".line-bottom"], {
+      delay: 6.2,
       duration: 3,
-      y: "0",
+      strokeDashoffset: 0,
+      ease: "power1.inOut",
       onComplete: () => {
         tl1.play();
       },
     });
 
-    const tl1 = gsap.timeline({ repeat: -1, paused: true });
-    tl1.to([".left", ".right"], {
-      delay: 1,
-      duration: 1,
-      opacity: 1,
-    });
-    tl1.to([".left", ".right"], {
-      duration: 1,
-      fill: "gray",
-    });
-    tl1.to([".left", ".right"], {
-      duration: 2,
-      y: "400",
-    });
+    const tl1 = gsap.timeline({ delay: 1.5, repeat: -1, paused: true });
+
+    // Draw the polygons
+    tl1
+      .to(".polygon-path", {
+        duration: 1.5,
+        strokeDashoffset: 0,
+        ease: "power1.inOut",
+      })
+      // Fill the polygons
+      .to(".polygon-path", {
+        duration: 1,
+        fill: "#2C2C2C",
+      })
+      .to(".polygon-path", {
+        y: 400,
+        duration: 2,
+      });
+
     const tl2 = gsap.timeline();
     tl2.to(".main", {
       background: "#ffffff",
@@ -100,34 +111,46 @@ const DynamicSvg = () => {
       scrollTrigger: {
         trigger: ".page1",
         start: "top 50%",
-        end: "top 20% ",
+        end: "top 40% ",
         scrub: 1,
       },
     });
   });
   return (
     <>
-      <div
-        className="h-[100vh] w-full absolute z-[-50] overflow-hidden "
-      >
+      <div className="h-[100vh] w-full absolute z-[-50] overflow-hidden ">
         <svg
           ref={svg}
           viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
-          className="mainsvg w-full h-full absolute top-0 left-0 translate-y-[-100%] "
+          className="mainsvg w-full h-full absolute top-0 left-0 z-10 "
         >
-          {verticalLines.map((line, index) => (
-            <path
-              key={index}
-              d={getVerticaLinePath(line.x)}
-              stroke="#2C2C2C"
-              strokeWidth="2"
-              fill="none"
-              opacity="1"
-              pathLength="1"
-              strokeDashoffset="0px"
-              strokeDasharray="1px 1px"
-            />
-          ))}
+          {verticalLines.map((line, index) => {
+            const paths = getVerticaLinePath(line.x);
+            return (
+              <g key={index}>
+                <path
+                  d={paths.top}
+                  stroke="#2C2C2C"
+                  strokeWidth="2"
+                  fill="none"
+                  opacity="1"
+                  strokeDasharray="100%"
+                  strokeDashoffset="100%"
+                  className="line-top"
+                />
+                <path
+                  d={paths.bottom}
+                  stroke="#2C2C2C"
+                  strokeWidth="2"
+                  fill="none"
+                  opacity="1"
+                  strokeDasharray="100%"
+                  strokeDashoffset="100%"
+                  className="line-bottom"
+                />
+              </g>
+            );
+          })}
         </svg>
 
         {/* Left Polygon */}
@@ -135,17 +158,17 @@ const DynamicSvg = () => {
           width={dimensions.width}
           height={dimensions.height}
           viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
-          className="left w-full h-full absolute top-0 left-0 opacity-0 "
+          className="left w-full h-full absolute top-0 left-0"
         >
           <path
             d={leftPolygonPath}
-            stroke="gray"
-            strokeWidth="1"
-            fill="var(--svg-line)"
-            fillOpacity="1"
-            pathLength="1"
-            strokeDashoffset="0px"
-            strokeDasharray="1px 1px"
+            stroke="#2C2C2C"
+            strokeWidth="2"
+            fill="none"
+            pathLength="100"
+            strokeDasharray="100"
+            strokeDashoffset="100"
+            className="polygon-path"
           />
         </svg>
 
@@ -154,17 +177,17 @@ const DynamicSvg = () => {
           width={dimensions.width}
           height={dimensions.height}
           viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
-          className="right w-full h-full absolute top-0 left-0 opacity-0"
+          className="right w-full h-full absolute top-0 left-0"
         >
           <path
             d={rightPolygonPath}
-            stroke="gray"
-            strokeWidth="1"
-            fill="var(--svg-line)"
-            fillOpacity="1"
-            pathLength="1"
-            strokeDashoffset="0px"
-            strokeDasharray="1px 1px"
+            stroke="#2C2C2C"
+            strokeWidth="2"
+            fill="none"
+            pathLength="100"
+            strokeDasharray="100"
+            strokeDashoffset="100"
+            className="polygon-path"
           />
         </svg>
       </div>

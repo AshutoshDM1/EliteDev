@@ -12,6 +12,33 @@ export default function NavBar() {
       >
         EliteDev
       </h1>
+      {/* <button
+        onClick={() =>
+          document
+            .querySelector(".page2")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        About
+      </button>
+      <button
+        onClick={() =>
+          document
+            .querySelector(".page3")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        Portfolio
+      </button>
+      <button
+        onClick={() =>
+          document
+            .querySelector(".page4")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        Connect
+      </button> */}
       <motion.div
         whileHover="hover"
         className="text-center h-full w-[80px] flex flex-col items-start justify-center cursor-pointer"

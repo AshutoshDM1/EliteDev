@@ -4,7 +4,7 @@ import Spline from "@splinetool/react-spline";
 
 export default function SecondPage() {
   return (
-    <div className="page2 min-h-[100vh] w-full text-white flex overflow-hidden flex-col-reverse 2xl:flex-row pt-[10vh] ">
+    <div data-scroll data-scroll-speed="3" className="page2 min-h-[100vh] w-full text-white flex overflow-hidden flex-col-reverse 2xl:flex-row ">
       <div className="h-full w-full md:max-w-[70rem] 2xl:max-w-[50rem] ml-auto flex flex-col items-start 2xl:items-start  justify-center p-[2vh] relative z-[10] ">
         <h1 className="text-white w-fit text-[3.5rem] md:text-[4.5rem] font-[Asap] font-[800] ">
           Hey Y&apos;ll I&apos;M Ashutosh
@@ -47,7 +47,7 @@ export default function SecondPage() {
         </div>
         <Marquee />
       </div>
-      <div className="h-[70vh] md:h-[100vh] w-full 2xl:w-[50%] flex items-start justify-start  overflow-hidden  ">
+      <div className="h-[70vh] md:h-[100vh] w-full 2xl:w-[50%] flex items-center justify-center  overflow-hidden  ">
         <motion.div
           style={{
             maskImage:
@@ -58,7 +58,7 @@ export default function SecondPage() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, delay: 1 }}
-          className="h-full w-full flex relative top-[-20vh] justify-center items-center 2xl:justify-start 2xl:items-start"
+          className="h-full w-full flex relative top-[-10vh] 2xl:top-[-16vh]  justify-center items-center 2xl:justify-start 2xl:items-start"
         >
           <Spline
             className="relative top-10 "
