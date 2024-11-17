@@ -1,35 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
 const ProjectList = () => {
-  const projects = [
-    {
-      id: "01",
-      title: "MangaHaven",
-      category: "Web Development / Design",
-    },
-    {
-      id: "02",
-      title: "Insight AI.",
-      category: "Web Development / Ai",
-    },
-    {
-      id: "03",
-      title: "Obsy Asency",
-      category: "Frontend Development / Animation",
-    },
-    {
-      id: "04",
-      title: "PrimeWallet",
-      category: "Full Stack Development / Backend",
-    },
-    {
-      id: "05",
-      title: "Apple Vision Pro",
-      category: "Frontend Development / Clone",
-    },
-  ];
+  const projects = useMemo(() => {
+    return [
+      {
+        id: "01",
+        title: "MangaHaven",
+        category: "Web Development / Design",
+      },
+      {
+        id: "02",
+        title: "Insight AI.",
+        category: "Web Development / Ai",
+      },
+      {
+        id: "03",
+        title: "Obsy Asency",
+        category: "Frontend Development / Animation",
+      },
+      {
+        id: "04",
+        title: "PrimeWallet",
+        category: "Full Stack Development / Backend",
+      },
+      {
+        id: "05",
+        title: "Apple Vision Pro",
+        category: "Frontend Development / Clone",
+      },
+    ];
+  }, []);
 
   useEffect(() => {
     const box = document.querySelector(".box");
@@ -51,7 +52,7 @@ const ProjectList = () => {
         });
       });
     });
-  }, []);
+  }, [projects]);
 
   useGSAP(() => {
     // Mouse move animation
@@ -88,19 +89,19 @@ const ProjectList = () => {
           "<"
         );
         // Add a check to ensure the animation plays correctly
-        // @ts-ignore
+        // @ts-expect-error: This is a temporary workaround for type issues
         container.animation = tl;
       }
     });
   }, []);
-  // @ts-ignore
+  // @ts-expect-error: This is a temporary workaround for type issues
   const handleMouseEnter = (e) => {
     const container = e.currentTarget;
     if (container.animation) {
       container.animation.play();
     }
   };
-  // @ts-ignore
+  // @ts-expect-error: This is a temporary workaround for type issues
   const handleMouseLeave = (e) => {
     const container = e.currentTarget;
     if (container.animation) {
