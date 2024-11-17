@@ -1,5 +1,7 @@
 import { useInView, motion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import ProjectList from "./Project";
+import gsap from "gsap";
 export default function Portfolio() {
   const projects = [
     {
@@ -54,25 +56,32 @@ export default function Portfolio() {
       },
     },
   };
-
+  useEffect(() => {
+    const box = document.querySelector(".page3");
+    // Set initial opacity of the element
+    box?.addEventListener("mouseenter", () => {
+      gsap.to(".boll", { opacity: 0, ease: "power1.inOut" });
+    });
+    box?.addEventListener("mouseleave", () => {
+      gsap.to(".boll", { opacity: 1, ease: "power1.inOut" });
+    });
+  });
   return (
     <>
-      <div
-        className="page3 min-h-[100vh] w-full pt-[10vh] md:p-[3] "
-      >
+      <div className="page3 min-h-[100vh] max-w-[80rem] mx-auto py-[10vh] md:p-[3] ">
         <div
           data-scroll
           data-scroll-speed="-5"
-          className="flex flex-col justify-center items-start h-[30%] max-w-[85%] mx-auto "
+          className="flex flex-col justify-center items-start h-[30%] px-4"
         >
           <motion.h1
             ref={ref}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={containerVariants}
-            className="text-black font-[Asap] font-bold text-[3.5rem] md:text-[6rem] italic uppercase "
+            className="text-black font-[Asap] font-medium text-[3.5rem] md:text-[6rem]  uppercase "
           >
-            {"Portfolio".split("").map((word) => {
+            {"Projects".split("").map((word) => {
               return (
                 <motion.span variants={itemVariants} key={word}>
                   {word}
@@ -88,11 +97,15 @@ export default function Portfolio() {
             delivering seamless experiences that are always fun and effective.
           </h1>
         </div>
-        <div className="h-fit w-full flex justify-evenly items-center px-4 pt-[8vh] flex-wrap gap-[10vh] ">
+        <ProjectList />
+        <div className="h-fit w-full justify-evenly items-center px-4 pt-[8vh] flex-wrap gap-[10vh] hidden ">
           {projects.map((item) => {
             return (
               <>
-                <div key={item.title} className="h-[50vh] w-[60vh] text-[#383838]">
+                <div
+                  key={item.title}
+                  className="h-[50vh] w-[60vh] text-[#383838]"
+                >
                   <img
                     className="object-cover h-[70%] w-full border-[2px] border-[#b0b0b0] rounded-[15px] overflow-hidden"
                     alt="This is a placeholder image."

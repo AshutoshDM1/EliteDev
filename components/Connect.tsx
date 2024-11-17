@@ -6,7 +6,7 @@ export default function Connect() {
   return (
     <>
       <motion.div
-        className="page4 min-h-[110vh] md:min-h-[100vh] w-full text-white flex flex-col justify-between items-center"
+        className="page4 md:min-h-[100vh] w-full text-white flex flex-col justify-between items-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

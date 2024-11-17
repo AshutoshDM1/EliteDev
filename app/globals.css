@@ -187,5 +187,9 @@ html.lenis body {
 
 .boll {
   background-color: rgb(255, 255, 255);
-  mix-blend-mode: exclusion;
+  mix-blend-mode:difference;
+}
+
+.boll > img {
+  mix-blend-mode:normal;
 }
