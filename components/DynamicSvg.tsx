@@ -62,7 +62,7 @@ const DynamicSvg = () => {
     L ${0.62 * dimensions.width} ${dimensions.height * 0.71}
     Z
   `;
-  const svg = useRef<SVGSVGElement | null>(null);
+  const svg = useRef(null);
   useGSAP(() => {
     // Animate the vertical lines first
     gsap.to([".line-top", ".line-bottom"], {
@@ -105,24 +105,54 @@ const DynamicSvg = () => {
         scrub: 1,
       },
     });
-    tl2.to(svg.current, {
-      opacity: 0,
-      ease: "linear",
-      scrollTrigger: {
-        trigger: ".page1",
-        start: "top 50%",
-        end: "top 40% ",
-        scrub: 1,
-      },
-    });
+    tl2
+      .to(svg.current, {
+        opacity: 0,
+        ease: "linear",
+        scrollTrigger: {
+          trigger: ".page1",
+          start: "top 60%",
+          end: "top 50% ",
+          scrub: 1,
+        },
+      })
+      .to(".sideline1", {
+        borderColor: "black",
+        scrollTrigger: {
+          trigger: ".page1",
+          start: "top 60%",
+          end: "top 50% ",
+          scrub: 1,
+        },
+      })
+      .to(".sideline2", {
+        borderColor: "black",
+        scrollTrigger: {
+          trigger: ".page1",
+          start: "top 60%",
+          end: "top 50% ",
+          scrub: 1,
+        },
+      })
+      .to(".navText", {
+        color: "black",
+        scrollTrigger: {
+          trigger: ".page1",
+          start: "top 60%",
+          end: "top 50% ",
+          scrub: 1,
+        },
+      });
   });
   return (
     <>
-      <div className="h-[100vh] w-full absolute z-[-50] overflow-hidden ">
+      <div
+        ref={svg}
+        className="h-[100vh] w-full absolute z-[-50] overflow-hidden "
+      >
         <svg
-          ref={svg}
           viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
-          className="mainsvg w-full h-full absolute top-0 left-0 z-10 "
+          className="mainsvg"
         >
           {verticalLines.map((line, index) => {
             const paths = getVerticaLinePath(line.x);

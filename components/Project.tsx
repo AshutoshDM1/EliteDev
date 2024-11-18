@@ -7,23 +7,23 @@ const ProjectList = () => {
       {
         id: "01",
         title: "MangaHaven",
-        category: "Web Development / Design",
+        category: "Full Stack Web Development / Design / Next.js",
       },
       {
         id: "02",
         title: "Insight AI.",
-        category: "Web Development / Ai",
+        category: "Full Stack Web Development / Ai / React ",
       },
       {
         id: "03",
         title: "Obsy Asency",
-        category: "Frontend Development / Animation",
+        category: "Frontend Development / Animation / GSAP",
       },
       {
         id: "04",
         title: "PrimeWallet",
-        category: "Full Stack Development / Backend",
-      },
+        category: "Full Stack Development / Express Backend",
+      }, 
       {
         id: "05",
         title: "Apple Vision Pro",
@@ -126,7 +126,7 @@ const ProjectList = () => {
                   <span className="text-[#202020] text-[24px] pt-3">
                     {project.id}
                   </span>
-                  <h2 className="text-[60px] text-[#000]">{project.title}</h2>
+                  <h2 className="text-[40px] sm:text-[60px] text-[#000]">{project.title}</h2>
                 </div>
                 <h3 className="text-gray-500 text-[20px]">
                   {project.category}

@@ -1,6 +1,17 @@
 import { MoveUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
 const Devfolio = () => {
+  const handleHover = () => {
+    gsap.to(".button", {
+      y: "-50px",
+    });
+  };
+  const handleHoverLeave = () => {
+    gsap.to(".button", {
+      y: 0,
+    });
+  };
   return (
     <div
       data-scroll
@@ -27,17 +38,32 @@ const Devfolio = () => {
           >
             Hi, I&apos;m Ashutosh Tiwari.
           </motion.h2>
-          <motion.button
+          <motion.div
+            onMouseEnter={handleHover}
+            onMouseLeave={handleHoverLeave}
+            onClick={() => {
+              window.open("https://github.com/AshutoshDM1", "_blank");
+            }}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="button bg-black text-white px-6 py-3 rounded-full flex items-center gap-2"
+            className="  text-white h-[50px] w-[300px] rounded-full cursor-pointer select-none overflow-hidden"
           >
-            <span>
-              <MoveUpRight />
-            </span>{" "}
-            Get in Touch
-          </motion.button>
+            <div className="button h-[100px] w-full flex flex-col">
+              <div className="h-[50px] bg-black flex items-center justify-center gap-4 ">
+                <span>
+                  <MoveUpRight />
+                </span>{" "}
+                Get in Touch
+              </div>
+              <div className="h-[50px] bg-[#f1f1f1] text-black flex items-center justify-center gap-4 ">
+                <span>
+                  <MoveUpRight />
+                </span>{" "}
+                Get in Touch
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Right Column */}

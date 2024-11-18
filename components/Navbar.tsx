@@ -1,45 +1,26 @@
 import { motion } from "framer-motion";
+import gsap from "gsap";
 export default function NavBar() {
+  const onhandleClickX = () => {
+    gsap.to(".sidebar", {
+      x: 0,
+      duration: 1,
+      ease: "power1.inOut",
+    });
+  };
   return (
-    <div className="h-[6vh] w-full flex px-5 items-center justify-between">
+    <div className="h-[6vh] fixed top-0 z-[100] w-full flex px-5 items-center justify-between  ">
       <h1
         style={{
           fontFamily: "Khula",
-          fontWeight: 800,
           fontStyle: "normal",
         }}
-        className="text-center text-2xl font-bold"
+        className="navText text-center text-2xl font-[600]"
       >
-        EliteDev
+        At
       </h1>
-      {/* <button
-        onClick={() =>
-          document
-            .querySelector(".page2")
-            ?.scrollIntoView({ behavior: "smooth" })
-        }
-      >
-        About
-      </button>
-      <button
-        onClick={() =>
-          document
-            .querySelector(".page3")
-            ?.scrollIntoView({ behavior: "smooth" })
-        }
-      >
-        Portfolio
-      </button>
-      <button
-        onClick={() =>
-          document
-            .querySelector(".page4")
-            ?.scrollIntoView({ behavior: "smooth" })
-        }
-      >
-        Connect
-      </button> */}
       <motion.div
+        onClick={onhandleClickX}
         whileHover="hover"
         className="text-center h-full w-[80px] flex flex-col items-start justify-center cursor-pointer"
       >
@@ -49,7 +30,7 @@ export default function NavBar() {
             hover: { width: "80px" },
           }}
           transition={{ duration: 0.3 }}
-          className="border-b-[2px] border-[#ffffff] h-[1vh] w-[80px]"
+          className="sideline1 border-b-[2px] border-[#ffffff] h-[1vh] w-[80px]"
         />
         <motion.div
           initial={{ width: "60px" }}
@@ -57,7 +38,7 @@ export default function NavBar() {
             hover: { width: "80px" },
           }}
           transition={{ duration: 0.3 }}
-          className="border-b-[2px] border-[#ffffff] h-[1vh] w-[80px]"
+          className="sideline2 border-b-[2px] border-[#ffffff] h-[1vh] w-[80px]"
         />
       </motion.div>
     </div>

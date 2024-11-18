@@ -14,9 +14,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "EliteDev",
+  title: "Ashutosh Tiwari",
   description: "EliteDev Portfolio of Ashutosh Tiwari",
-  icons: "https://web.dev/static/articles/building/an-adaptive-favicon/image/example-dark-theme-favico-6a6f6f67bc3e7.png",
+  icons:
+    "https://web.dev/static/articles/building/an-adaptive-favicon/image/example-dark-theme-favico-6a6f6f67bc3e7.png",
 };
 
 export default function RootLayout({

@@ -1,8 +1,30 @@
 "use client";
-import { Linkedin, Mail, Twitter } from "lucide-react";
-import { motion } from "framer-motion"; 
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Connect() {
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/ashutosh-tiwari-8931b82b8/",
+      icon: <Linkedin />,
+    },
+    {
+      name: "Twitter",
+      href: "https://x.com/AshutoshDM_1",
+      icon: <Twitter />,
+    },
+    {
+      name: "Github",
+      href: "https://github.com/AshutoshDM1",
+      icon: <Github />, // Assuming Mail icon is used for Github as there's no specific Github icon in Lucide React
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/ashutoshtiwari9015/",
+      icon: <Mail />, // Assuming Mail icon is used for Instagram as there's no specific Instagram icon in Lucide React
+    },
+  ];
   return (
     <>
       <motion.div
@@ -35,41 +57,20 @@ export default function Connect() {
               Let&apos;s have a chat!
             </motion.h1>
           </div>
-          <div className="h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5  ">
-            <motion.button
-              className="flex justify-center items-center gap-2 rounded-[15px] border-[2px] text-[#444444] text-[1.2rem] border-[#a6a6a6] px-4 py-[5px]"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span>
-                <Mail />
-              </span>
-              Email
-            </motion.button>
-            <motion.button
-              className="flex justify-center items-center gap-2 rounded-[15px] border-[2px] text-[#444444] text-[1.2rem] border-[#a6a6a6] px-4 py-[5px]"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span>
-                <Linkedin className="mb-2" />
-              </span>
-              LinkedIn
-            </motion.button>
-            <motion.button
-              className="flex justify-center items-center gap-2 rounded-[15px] border-[2px] text-[#444444] text-[1.2rem] border-[#a6a6a6] px-4 py-[5px]"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span>
-                <Twitter />
-              </span>
-              Twitter
-            </motion.button>
-          </div>
+          <motion.div className="h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5  ">
+            {socialLinks.map((item, index) => (
+              <motion.button
+                key={item.name}
+                className="flex justify-center items-center gap-2 rounded-[15px] border-[2px] text-[#444444] text-[1.2rem] border-[#a6a6a6] px-4 py-[5px]"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+              >
+                <span>{item.icon}</span>
+                {item.name}
+              </motion.button>
+            ))}
+          </motion.div>
           <div className="min-h-[10vh]  w-full flex flex-col justify-center items-center ">
             <motion.h1
               className=" font-medium font-[Asap] text-[2rem] text-center"

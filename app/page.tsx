@@ -11,6 +11,7 @@ import Devfolio from "@/components/Devfolio";
 import LogoSvg from "@/components/LogoSvg";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { useEffect, useRef } from "react";
+import Sidebar from "@/components/Sidebar";
 
 // Add type declaration for window.lenis
 declare global {
@@ -134,7 +135,7 @@ export default function Home() {
         </div>
         <div
           ref={cursorCircle}
-          className="boll rounded-[50%] h-[30px] w-[30px] fixed z-[999] shadow-white -translate-x-10 -translate-y-8 pointer-events-none "
+          className="boll rounded-[50%] h-[30px] w-[30px] fixed z-[999] shadow-white -translate-x-10 -translate-y-8 pointer-events-none"
         ></div>
         <div
           style={{
@@ -152,7 +153,14 @@ export default function Home() {
           className="main h-screen w-full fixed top-0 z-[-50]"
         ></div>
         <div className="w-full relative top-0 left-0 text-white z-10 ">
-          <div className="h-screen w-full overflow-hidden">
+          <Sidebar />
+          <div
+            style={{
+              background:
+                "radial-gradient(circle, rgba(255,255,255,0.585872) -300%, rgba(102,37,177,0) 58%, rgba(0,0,0,0) 100%)",
+            }}
+            className="h-screen w-full overflow-hidden"
+          >
             <DynamicSvg />
             <NavBar />
             <MainPage />

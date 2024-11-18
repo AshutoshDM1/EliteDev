@@ -53,7 +53,7 @@ export default function MainPage() {
                 fontWeight: 800,
                 textShadow: "rgba(255, 255, 255, 0.3) 0px 0px 6px",
               }}
-              className=" text-center text-white font-bold"
+              className=" text-center flex flex-col md:flex-row text-white font-bold"
             >
               <span className="maintext mr-5  ">creative</span>
               solutions.
