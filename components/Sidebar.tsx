@@ -14,6 +14,10 @@ const Sidebar = () => {
       name: "Instagram",
       href: "https://www.instagram.com/ashutoshtiwari9015/",
     },
+    {
+      name: "Wakatime",
+      href: "https://wakatime.com/@AshutoshDM1",
+    },
   ];
 
   const menuLinks = [

@@ -5,6 +5,7 @@ const Devfolio = () => {
   const handleHover = () => {
     gsap.to(".button", {
       y: "-50px",
+      ease :"expo.out"
     });
   };
   const handleHoverLeave = () => {

@@ -101,29 +101,27 @@ export default function Portfolio() {
         <div className="h-fit w-full justify-evenly items-center px-4 pt-[8vh] flex-wrap gap-[10vh] hidden ">
           {projects.map((item) => {
             return (
-              <>
-                <div
-                  key={item.title}
-                  className="h-[50vh] w-[60vh] text-[#383838]"
-                >
-                  <img
-                    className="object-cover h-[70%] w-full border-[2px] border-[#b0b0b0] rounded-[15px] overflow-hidden"
-                    alt="This is a placeholder image."
-                    height={400}
-                    width={400}
-                    src={item.imageurl}
-                  ></img>
-                  <h1 className="font-[Asap] font-bold text-[2rem] italic uppercase px-3 ">
-                    {item.title}
-                  </h1>
-                  <h1 className="font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
-                    {item.Line1}{" "}
-                  </h1>
-                  <h1 className="font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
-                    {item.Line2}
-                  </h1>
-                </div>
-              </>
+              <div
+                key={item.title}
+                className="h-[50vh] w-[60vh] text-[#383838]"
+              >
+                <img
+                  className="object-cover h-[70%] w-full border-[2px] border-[#b0b0b0] rounded-[15px] overflow-hidden"
+                  alt="This is a placeholder image."
+                  height={400}
+                  width={400}
+                  src={item.imageurl}
+                ></img>
+                <h1 className="font-[Asap] font-bold text-[2rem] italic uppercase px-3 ">
+                  {item.title}
+                </h1>
+                <h1 className="font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
+                  {item.Line1}{" "}
+                </h1>
+                <h1 className="font-[Asap] font-bold text-[1.2rem]  uppercase px-3 ">
+                  {item.Line2}
+                </h1>
+              </div>
             );
           })}
         </div>

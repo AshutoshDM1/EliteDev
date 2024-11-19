@@ -57,10 +57,12 @@ export default function Connect() {
               Let&apos;s have a chat!
             </motion.h1>
           </div>
-          <motion.div className="h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5  ">
+          <motion.div className="h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5 select-none ">
             {socialLinks.map((item, index) => (
-              <motion.button
+              <motion.a
+                href={item.href}
                 key={item.name}
+                target="_blank"
                 className="flex justify-center items-center gap-2 rounded-[15px] border-[2px] text-[#444444] text-[1.2rem] border-[#a6a6a6] px-4 py-[5px]"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -68,7 +70,7 @@ export default function Connect() {
               >
                 <span>{item.icon}</span>
                 {item.name}
-              </motion.button>
+              </motion.a>
             ))}
           </motion.div>
           <div className="min-h-[10vh]  w-full flex flex-col justify-center items-center ">

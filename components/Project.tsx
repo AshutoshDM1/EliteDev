@@ -111,7 +111,7 @@ const ProjectList = () => {
 
   return (
     <>
-      <div className="w-full px-4 py-16">
+      <div className="w-full px-4 py-16 select-none">
         <div className="box h-full">
           {projects.map((project) => (
             <div

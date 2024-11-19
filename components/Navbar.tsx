@@ -9,7 +9,7 @@ export default function NavBar() {
     });
   };
   return (
-    <div className="h-[6vh] fixed top-0 z-[100] w-full flex px-5 items-center justify-between  ">
+    <div className="h-[6vh] fixed top-0 z-[100] w-full flex px-5 items-center justify-between select-none ">
       <h1
         style={{
           fontFamily: "Khula",

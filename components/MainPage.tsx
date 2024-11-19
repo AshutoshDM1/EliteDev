@@ -25,7 +25,8 @@ export default function MainPage() {
   }, []);
   return (
     <>
-      <div className="h-[94vh] w-full flex flex-col justify-center items-center relative z-10 overflow-hidden text-center ">
+      <div 
+      className="h-[94vh] w-full flex flex-col justify-center items-center relative z-10 overflow-hidden text-center ">
         <motion.div className="flex flex-col justify-center items-center">
           <div className="overflow-hidden flex text-[2.5rem] md:text-[80px] font-[800]  ">
             <motion.h1
