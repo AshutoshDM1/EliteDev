@@ -11,10 +11,6 @@ const Sidebar = () => {
     { name: "Twitter", href: "https://x.com/AshutoshDM_1" },
     { name: "Github", href: "https://github.com/AshutoshDM1" },
     {
-      name: "Instagram",
-      href: "https://www.instagram.com/ashutoshtiwari9015/",
-    },
-    {
       name: "Wakatime",
       href: "https://wakatime.com/@AshutoshDM1",
     },

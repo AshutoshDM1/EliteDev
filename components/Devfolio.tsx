@@ -5,7 +5,7 @@ const Devfolio = () => {
   const handleHover = () => {
     gsap.to(".button", {
       y: "-50px",
-      ease :"expo.out"
+      ease: "expo.out",
     });
   };
   const handleHoverLeave = () => {
@@ -15,8 +15,6 @@ const Devfolio = () => {
   };
   return (
     <div
-      data-scroll
-      data-scroll-speed="-1.5"
       className="page1 min-h-screen max-w-[65rem] mx-auto  flex flex-col justify-center items-center px-6 lg:px-16 text-black relative z-50 py-[20vh] "
     >
       <section className="text-center lg:text-left pb-12 lg:pb-[10vh] ">

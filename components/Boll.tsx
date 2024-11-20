@@ -17,7 +17,7 @@ const Boll = () => {
     <>
       <div
         ref={cursorCircle}
-        className="boll rounded-[50%] h-[30px] w-[30px] fixed z-[999] shadow-white -translate-x-10 -translate-y-8 pointer-events-none"
+        className="boll rounded-[50%] h-[30px] w-[30px] fixed z-[9999999] shadow-white -translate-x-10 -translate-y-8 pointer-events-none"
       ></div>
     </>
   );

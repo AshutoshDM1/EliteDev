@@ -1,5 +1,5 @@
 "use client";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Connect() {
@@ -18,11 +18,6 @@ export default function Connect() {
       name: "Github",
       href: "https://github.com/AshutoshDM1",
       icon: <Github />, // Assuming Mail icon is used for Github as there's no specific Github icon in Lucide React
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/ashutoshtiwari9015/",
-      icon: <Mail />, // Assuming Mail icon is used for Instagram as there's no specific Instagram icon in Lucide React
     },
   ];
   return (
@@ -57,7 +52,7 @@ export default function Connect() {
               Let&apos;s have a chat!
             </motion.h1>
           </div>
-          <motion.div className="h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5 select-none ">
+          <motion.div className="min-h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5 select-none ">
             {socialLinks.map((item, index) => (
               <motion.a
                 href={item.href}

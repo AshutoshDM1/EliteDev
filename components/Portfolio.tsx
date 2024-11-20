@@ -69,11 +69,7 @@ export default function Portfolio() {
   return (
     <>
       <div className="page3 min-h-[100vh] max-w-[80rem] mx-auto py-[10vh] md:p-[3] ">
-        <div
-          data-scroll
-          data-scroll-speed="-5"
-          className="flex flex-col justify-center items-start h-[30%] px-4"
-        >
+        <div className="flex flex-col justify-center items-start h-[30%] px-4">
           <motion.h1
             ref={ref}
             initial="hidden"
