@@ -8,44 +8,21 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DynamicSvg from "@/components/DynamicSvg";
 import Devfolio from "@/components/Devfolio";
-import { ReactLenis } from "@studio-freight/react-lenis";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
 import Images from "@/components/Images";
 import Boll from "@/components/Boll";
 import Loading from "@/components/Loading";
 import LocomotiveScroll from "locomotive-scroll";
 import ProjectShow from "@/components/ShowProject";
-import { useRecoilState } from "recoil";
-import { scrollmain, showprojects } from "@/atoms";
-
-// Add type declaration for window.lenis
-declare global {
-  interface Window {
-    lenis?: {
-      raf: (time: number) => void;
-    };
-  }
-}
+import { useRecoilValue } from "recoil";
+import { showprojects } from "@/atoms";
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll({
-      lenisOptions: {
-        wrapper: window,
-        content: document.documentElement,
-        lerp: 0.2,
-        duration: 1.2,
-        orientation: "vertical",
-        gestureOrientation: "vertical",
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      },
-    });
+    const locomotiveScroll = new LocomotiveScroll();
     return () => locomotiveScroll.destroy();
   }, []);
 
@@ -96,66 +73,50 @@ export default function Home() {
       },
     });
   });
-  const [selectedProject, setSelectedProject] = useRecoilState(showprojects);
-  const [scroll, setscroll] = useRecoilState(scrollmain);
+  const selectedProject = useRecoilValue(showprojects);
 
   const handleClose = () => {
-    setSelectedProject(null);
-    gsap.to(".img", {
-      opacity: 1,
-      scale: "1",
+    gsap.to(".projectShow", {
+      y: "100%",
+      borderRadius: "35%",
       ease: "power1.inOut",
     });
-    gsap.to(".boll", { opacity: 0, ease: "power1.inOut" });
-    setscroll(true);
   };
-
-  // Use useEffect to scroll into view when selectedProject changes
-  useEffect(() => {
-    if (scroll === true) {
-      const page3Element = document.querySelector(`.page3`);
-      if (page3Element) {
-        page3Element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [scroll]); // Dependency on selectedProject
 
   return (
     <>
-      {!selectedProject ? (
-        <>
-          <Images />
-          <Boll />
-          {/* <Loading /> */}
-          <div className="main h-screen w-full fixed top-0 z-[-50] bg-black "></div>
-          <div className="w-full relative top-0 left-0 text-white z-10 ">
-            <Sidebar />
-            <div
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(255,255,255,0.585872) -300%, rgba(102,37,177,0) 58%, rgba(0,0,0,0) 100%)",
-              }}
-              className="FirstPage h-screen w-full overflow-hidden"
-            >
-              <DynamicSvg />
-              <NavBar />
-              <MainPage />
-            </div>
-            <Devfolio />
-            <Portfolio />
-            <Connect />
-          </div>
-        </>
-      ) : (
-        <ProjectShow
-          heading={selectedProject.heading}
-          description={selectedProject.description}
-          fontend={selectedProject.frontend}
-          backend={selectedProject.backend}
-          image={selectedProject.image}
-          onClose={handleClose}
-        />
-      )}
+      <ProjectShow
+        heading={selectedProject.heading}
+        description={selectedProject.description}
+        fontend={selectedProject.frontend}
+        herf={selectedProject.href}
+        backend={selectedProject.backend}
+        devops={selectedProject.devops}
+        image={selectedProject.image}
+        github={selectedProject.github}
+        onClose={handleClose}
+      />
+      <Loading />
+      <div className="main h-screen w-full fixed top-0 z-[-50] bg-black "></div>
+      <div className="w-full text-white z-10 ">
+        <Boll />
+        <Images />
+        <Sidebar />
+        <div
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.585872) -300%, rgba(102,37,177,0) 58%, rgba(0,0,0,0) 100%)",
+          }}
+          className="FirstPage h-screen w-full overflow-hidden"
+        >
+          <DynamicSvg />
+          <NavBar />
+          <MainPage />
+        </div>
+        <Devfolio />
+        <Portfolio />
+        <Connect />
+      </div>
     </>
   );
 }

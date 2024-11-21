@@ -1,18 +1,41 @@
 import { MoveUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import { useRef, useState } from "react";
+
 const Devfolio = () => {
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!buttonRef.current) return;
+
+    const rect = buttonRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Calculate distance from center
+    const x = (e.clientX - centerX) * 0.2; // Adjust multiplier for strength
+    const y = (e.clientY - centerY) * 0.2;
+    
+    setPosition({ x, y });
+  };
+
   const handleHover = () => {
     gsap.to(".button", {
       y: "-50px",
       ease: "expo.out",
     });
   };
+
   const handleHoverLeave = () => {
     gsap.to(".button", {
       y: 0,
     });
+    // Reset position when mouse leaves
+    setPosition({ x: 0, y: 0 });
   };
+
   return (
     <div
       className="page1 min-h-screen max-w-[65rem] mx-auto  flex flex-col justify-center items-center px-6 lg:px-16 text-black relative z-50 py-[20vh] "
@@ -38,6 +61,8 @@ const Devfolio = () => {
             Hi, I&apos;m Ashutosh Tiwari.
           </motion.h2>
           <motion.div
+            ref={buttonRef}
+            onMouseMove={handleMouseMove}
             onMouseEnter={handleHover}
             onMouseLeave={handleHoverLeave}
             onClick={() => {
@@ -45,8 +70,13 @@ const Devfolio = () => {
             }}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="  text-white h-[50px] w-[300px] rounded-full cursor-pointer select-none overflow-hidden"
+            animate={{ x: position.x, y: position.y }}
+            transition={{ 
+              duration: 0.5,
+              x: { duration: 0.2, ease: "easeOut" },
+              y: { duration: 0.2, ease: "easeOut" }
+            }}
+            className="text-white h-[50px] w-[300px] rounded-full cursor-pointer select-none overflow-hidden"
           >
             <div className="button h-[100px] w-full flex flex-col">
               <div className="h-[50px] bg-black flex items-center justify-center gap-4 ">
