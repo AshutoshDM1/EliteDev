@@ -25,14 +25,13 @@ export default function MainPage() {
   }, []);
   return (
     <>
-      <div 
-      className="h-[94vh] w-full flex flex-col justify-center items-center relative z-10 overflow-hidden text-center ">
+      <div className="h-[100vh] w-full flex flex-col justify-center items-center relative z-10 overflow-hidden text-center ">
         <motion.div className="flex flex-col justify-center items-center">
-          <div className="overflow-hidden flex text-[2.5rem] md:text-[80px] font-[800]  ">
+          <div className="overflow-hidden flex text-[2.5rem] md:text-[80px] font-[800]">
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 7 }}
+              transition={{ duration: 1.5, delay: 4 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
@@ -43,12 +42,12 @@ export default function MainPage() {
               Turning ideas into
             </motion.h1>
           </div>
-          <div className="overflow-hidden text-[2.5rem] md:text-[80px] font-[800]  ">
+          <div className="overflow-hidden text-[2.5rem] md:text-[80px] font-[800]">
             {" "}
             <motion.h1
               initial={{ opacity: 0, y: 250 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 8 }}
+              transition={{ duration: 1.5, delay: 5 }}
               style={{
                 fontFamily: "Khula",
                 fontWeight: 800,
@@ -64,7 +63,7 @@ export default function MainPage() {
             <motion.h1
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: .7, delay: 9.5 }}
+              transition={{ duration: 0.7, delay: 6.5 }}
               className="w-full text-[#888888] text-[18px] font-[400]"
             >
               {" "}

@@ -1,5 +1,4 @@
 import React from "react";
-import { X } from "lucide-react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 const Sidebar = () => {
@@ -21,22 +20,12 @@ const Sidebar = () => {
     { name: "Projects", href: ".page3" },
     { name: "Contact", href: ".page4" },
   ];
-  const onhandleClickX = () => {
-    gsap.to(".sidebar", {
-      x: "100%",
-      duration: 1,
-      ease: "power1.inOut",
-    });
-  };
+
   return (
     <div
       className="sidebar h-screen w-full 2xl:w-1/3 xl:w-1/2 fixed top-0 right-0 z-[200] bg-white p-8 flex-col justify-between
     translate-x-[110%] "
     >
-      <button onClick={onhandleClickX} className="self-end mb-8">
-        <X className="w-8 h-8  text-[#282828] " />
-      </button>
-
       <div className="h-[80%] max-w-[30rem] mx-auto flex justify-center items-center">
         <div className="h-fit flex gap-14 ">
           <div className="flex flex-col items-start justify-start  ">
@@ -69,20 +58,18 @@ const Sidebar = () => {
                   whileHover={{ x: 20 }}
                   transition={{ duration: 0.3 }}
                   key={link.name}
-                  onClick={() => (
-                    <>
-                      {gsap.to(".sidebar", {
-                        x: "100%",
-                        duration: 1,
-                        ease: "power1.inOut",
-                        onComplete: () => {
-                          document
-                            .querySelector(`${link.href}`)
-                            ?.scrollIntoView({ behavior: "smooth" });
-                        },
-                      })}
-                    </>
-                  )}
+                  onClick={() => {
+                    gsap.to(".sidebar", {
+                      x: "100%",
+                      duration: 1,
+                      ease: "power1.inOut",
+                      onComplete: () => {
+                        document
+                          .querySelector(`${link.href}`)
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      },
+                    });
+                  }}
                   className="text-black hover:text-gray-600 transition-colors cursor-pointer "
                 >
                   {link.name}

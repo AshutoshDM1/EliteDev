@@ -29,13 +29,13 @@ export default function Home() {
   useGSAP(() => {
     const tl = gsap.timeline();
     gsap.to(".logo-path", {
-      delay: 6,
+      delay: 3,
       scale: 0,
       duration: 0.3,
       transformOrigin: "center",
     });
     gsap.to(".loading", {
-      delay: 6,
+      delay: 3,
       opacity: 0,
       duration: 0.6,
       ease: "linear",

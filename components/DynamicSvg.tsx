@@ -66,7 +66,7 @@ const DynamicSvg = () => {
   useGSAP(() => {
     // Animate the vertical lines first
     gsap.to([".line-top", ".line-bottom"], {
-      delay: 6.2,
+      delay: 3.2,
       duration: 3,
       strokeDashoffset: 0,
       ease: "power1.inOut",
@@ -75,7 +75,7 @@ const DynamicSvg = () => {
       },
     });
 
-    const tl1 = gsap.timeline({ delay: 1.5, repeat: -1, paused: true });
+    const tl1 = gsap.timeline({ delay: .5, repeat: -1, paused: true });
 
     // Draw the polygons
     tl1
