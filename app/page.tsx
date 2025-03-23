@@ -17,6 +17,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import ProjectShow from "@/components/ShowProject";
 import { useRecoilValue } from "recoil";
 import { showprojects } from "@/atoms";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
@@ -85,6 +86,7 @@ export default function Home() {
 
   return (
     <>
+      <ScrollProgress className="top-[0px]" />
       <ProjectShow
         heading={selectedProject.heading}
         description={selectedProject.description}

@@ -17,7 +17,7 @@ const Boll = () => {
     <>
       <div
         ref={cursorCircle}
-        className="boll rounded-[50%] h-[30px] w-[30px] fixed z-[999999] shadow-white -translate-x-10 -translate-y-8 pointer-events-none"
+        className="boll hidden lg:block bg-white mix-blend-difference rounded-[50%] h-[30px] w-[30px] fixed z-[999999] shadow-white -translate-x-10 -translate-y-8 pointer-events-none"
       ></div>
     </>
   );

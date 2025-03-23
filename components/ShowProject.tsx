@@ -1,9 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { X } from "lucide-react";
-import { useState } from "react";
-import { useRef } from "react";
 import { motion } from "framer-motion";
-
+import MagnetButton from "./MagnetButton";
+import { TextAnimate } from "./magicui/text-animate";
+import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 type ReactCompo = {
   heading: string;
   description: string;
@@ -12,8 +12,76 @@ type ReactCompo = {
   backend: string;
   devops: string;
   image: string;
-  github: string;
+  github?: string;
   onClose?: () => void;
+};
+
+const getProjectColors = (heading: string): { [key: string]: string } => {
+  switch (heading) {
+    case "MangaHaven":
+      return {
+        "Next.js": "bg-[#FF3366]",
+        "Tailwind CSS": "bg-[#38BDF8]",
+        "Shadcn UI": "bg-[#09090B]",
+        Recoil: "bg-[#3578E5]",
+        "Framer Motion": "bg-[#FF5733]",
+        "Nextjs Backend": "bg-[#a0a0a0]",
+        NextAuth: "bg-[#7952B3]",
+        Prisma: "bg-[#2D3748]",
+        PostgreSQL: "bg-[#336791]",
+        Cloudinary: "bg-[#3448C5]",
+        Docker: "bg-[#2496ED]",
+        AWS: "bg-[#FF9900]",
+        "Github Actions": "bg-[#2088FF]",
+      };
+    case "Insight AI":
+      return {
+        React: "bg-[#61DAFB]",
+        TypeScript: "bg-[#3178C6]",
+        Recoil: "bg-[#764ABC]",
+        "Tailwind CSS": "bg-[#06B6D4]",
+        FireBase: "bg-[#FFCA28]",
+        Hono: "bg-[#E6007A]",
+        "Gemmini API": "bg-[#00A67E]",
+        Docker: "bg-[#0DB7ED]",
+        "Cloudflare Workers": "bg-[#F38020]",
+      };
+    case "Obsy Asency":
+      return {
+        HTML: "bg-[#E34F26]",
+        CSS: "bg-[#1572B6]",
+        GSAP: "bg-[#88CE02]",
+        ScrollTrigger: "bg-[#4A154B]",
+        "Locomotive Scroll": "bg-[#F43059]",
+      };
+    case "PrimeWallet":
+      return {
+        React: "bg-[#00D8FF]",
+        "Material UI": "bg-[#007FFF]",
+        Recoil: "bg-[#3578E5]",
+        GSAP: "bg-[#88CE02]",
+        "Express.js": "bg-[#000000]",
+        MongoDB: "bg-[#47A248]",
+        Mongooes: "bg-[#880000]",
+        JWT: "bg-[#D63AFF]",
+        Bcrypt: "bg-[#525DDC]",
+      };
+    case "Apple Vision Pro":
+      return {
+        HTML: "bg-[#DD4B25]",
+        CSS: "bg-[#254BDD]",
+        GSAP: "bg-[#A6E61D]",
+        ScrollTrigger: "bg-[#7B3FA0]",
+        "Locomotive Scroll": "bg-[#FF1B5B]",
+      };
+    default:
+      return {
+        // fallback colors
+        "Next.js": "bg-[#FF3366]",
+        React: "bg-[#61DAFB]",
+        // ... other default colors
+      };
+  }
 };
 
 const ProjectShow: React.FC<ReactCompo> = ({
@@ -27,84 +95,111 @@ const ProjectShow: React.FC<ReactCompo> = ({
   github,
   onClose,
 }) => {
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const projectColors = getProjectColors(heading);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!buttonRef.current) return;
-
-    const rect = buttonRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    // Calculate distance from center
-    const x = (e.clientX - centerX) * 0.4; // Adjust multiplier for strength
-    const y = (e.clientY - centerY) * 0.4;
-
-    setPosition({ x, y });
-  };
   return (
-    <div className="projectShow translate-y-[100%] rounded-t-[35%] fixed inset-0 z-[999999] w-full flex flex-col items-center justify-center bg-black text-white">
+    <div className="projectShow translate-y-[100%] rounded-t-[35%] fixed inset-0 z-[999999] w-full flex flex-col items-center justify-center bg-black text-white px-5">
       <motion.button
         onClick={onClose}
-        className="absolute top-4 right-16 text-white hover:rotate-90 ease-in-out duration-200"
+        className="absolute top-4 right-16 text-white hover:rotate-[180deg] ease-in-out duration-200"
       >
-        <X size={40} />
+        <X size={70} />
       </motion.button>
       <div className="h-full max-w-[1000px] mx-auto ">
         <a href={herf} target="_blank">
-          <div className="mt-[5vh] flex w-full justify-between">
-            <h1 className="text-[96px] font-[400] font-[Khula] mb-4 select-none cursor-pointer ">
+          <div className="sm:mt-[2vh] flex w-full sm:justify-start sm:items-start gap-10 mt-20 items-center justify-center">
+            <h1 className="text-[48px] sm:text-[72px] lg:text-[96px]  font-[400] font-[Khula] mb-4 select-none cursor-pointer ">
               {heading}
             </h1>
-            <motion.div
-              initial={{ x: 0, y: 0 }}
-              whileHover={{ scale: 1.1 }}
-              onMouseOver={handleMouseMove}
-              onMouseOut={() => {
-                setPosition({ x: 0, y: 0 });
-              }}
-              ref={buttonRef}
-              onClick={onClose}
-              animate={{ x: position.x, y: position.y }}
-              transition={{ type: "spring", stiffness: 150, damping: 15 }}
-              className="flex justify-center items-center mt-8 h-[48px] w-[48px] select-none cursor-pointer"
+            <MagnetButton
+              className="hidden lg:block"
+              width={"4rem"}
+              height={"4rem"}
+              magneticStrength={25}
+              magneticContentStrength={50}
             >
-              <ArrowUpRight size={50} />
-            </motion.div>
+              <ArrowUpRight className="mt-10" size={80} />
+            </MagnetButton>
           </div>
         </a>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <div>
-            <h2 className="text-[16px] text-[#bcbcbc] font-[300] mb-8 pb-4 border-b-[1px] border-[#bcbcbcb1]  ">
-              DESCRIPTION
-            </h2>
-            <p className="font-[Poppins] font-[400] text-[16px] text-[#b0b0b0] ">
-              {description}
-            </p>
-          </div>
-          <div>
-            <h2 className="text-[16px] text-[#bcbcbc] font-[300] mb-5 pb-4 border-b-[1px] border-[#bcbcbcb1] ">
-              Link
-            </h2>
-            <ul className="list-disc w-fit pl-5 font-[Poppins] font-[400] text-[16px] text-[#b0b0b0] ">
-              <li>
-                <Links name="Github" href={github} />
-              </li>
-              <li>
-                <Links name="Website" href={herf} />
-              </li>
-            </ul>
+            <div>
+              <div className="flex sm:justify-start justify-center gap-10">
+                <InteractiveHoverButton
+                  href={github}
+                  className="bg-blue-500 h-9 w-fit flex items-center "
+                >
+                  GitHUb
+                </InteractiveHoverButton>{" "}
+                <InteractiveHoverButton
+                  href={herf}
+                  className="bg-green-500 h-9 w-fit flex items-center "
+                >
+                  Live Link
+                </InteractiveHoverButton>
+              </div>
+              <div className="mt-10">
+                <TextAnimate
+                  duration={2}
+                  delay={0.1}
+                  animation="blurIn"
+                  as="h1"
+                >
+                  {description}
+                </TextAnimate>
+              </div>
+            </div>
           </div>
           <div>
             <h2 className="text-[16px] text-[#bcbcbc] font-[300] mb-5 pb-4 border-b-[1px] border-[#bcbcbcb1] ">
               TECHNOLOGIES
             </h2>
-            <ul className="list-disc pl-5 font-[Poppins] font-[400] text-[16px] text-[#b0b0b0] ">
-              <li>Frontend: {fontend} </li>
-              {backend != "Not involved" && <li>Backend: {backend} </li>}
-              {devops != "Not involved" && <li>Devops: {devops} </li>}
-            </ul>
+            <div className="flex flex-wrap gap-2 font-[Poppins] text-[14px]">
+              {fontend.split(",").map((tech, index) => {
+                const techTrim = tech.trim();
+                return (
+                  <span
+                    key={index}
+                    className={`px-3 py-1 rounded-full cursor-pointer ${
+                      projectColors[techTrim] || "bg-[#FF3366]"
+                    } text-white`}
+                  >
+                    {techTrim}
+                  </span>
+                );
+              })}
+
+              {backend !== "Not involved" &&
+                backend.split(",").map((tech, index) => {
+                  const techTrim = tech.trim();
+                  return (
+                    <span
+                      key={`backend-${index}`}
+                      className={`px-3 py-1 rounded-full cursor-pointer ${
+                        projectColors[techTrim] || "bg-[#4D7C0F]"
+                      } text-white`}
+                    >
+                      {techTrim}
+                    </span>
+                  );
+                })}
+
+              {devops !== "Not involved" &&
+                devops.split(",").map((tech, index) => {
+                  const techTrim = tech.trim();
+                  return (
+                    <span
+                      key={`devops-${index}`}
+                      className={`px-3 py-1 rounded-full cursor-pointer ${
+                        projectColors[techTrim] || "bg-[#6366F1]"
+                      } text-white`}
+                    >
+                      {techTrim}
+                    </span>
+                  );
+                })}
+            </div>
           </div>
         </div>
         <img

@@ -1,98 +1,53 @@
-import { MoveUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { useRef, useState } from "react";
+import ScrollReveal from "./block/TextAnimations/ScrollReveal/ScrollReveal";
+import MagnetButton from "./MagnetButton";
+import { TypewriterEffect } from "./ui/typewriter-effect";
 
 const Devfolio = () => {
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!buttonRef.current) return;
-
-    const rect = buttonRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    // Calculate distance from center
-    const x = (e.clientX - centerX) * 0.2; // Adjust multiplier for strength
-    const y = (e.clientY - centerY) * 0.2;
-    
-    setPosition({ x, y });
-  };
-
-  const handleHover = () => {
-    gsap.to(".button", {
-      y: "-50px",
-      ease: "expo.out",
-    });
-  };
-
-  const handleHoverLeave = () => {
-    gsap.to(".button", {
-      y: 0,
-    });
-    // Reset position when mouse leaves
-    setPosition({ x: 0, y: 0 });
-  };
-
   return (
-    <div
-      className="page1 min-h-screen max-w-[65rem] mx-auto  flex flex-col justify-center items-center px-6 lg:px-16 text-black relative z-50 py-[20vh] "
-    >
-      <section className="text-center lg:text-left pb-12 lg:pb-[10vh] ">
-        <h1 className="text-[30px] lg:text-[60px] font-[400] leading-tight">
+    <div className="page1 min-h-screen max-w-[65rem] mx-auto  flex flex-col justify-center items-center px-6 lg:px-16 text-black relative z-50 py-[20vh] ">
+      <section className="text-center lg:text-left pb-12 lg:pb-[10vh]  ">
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={5}
+          blurStrength={60}
+        >
           I believe in a user centered design approach, ensuring that every
           project I work on is tailored to meet the specific needs of its
           users.&apos;
-        </h1>
+        </ScrollReveal>
       </section>
       <div className="w-full border-b-[1px] border-[#6767677a] mb-[7vh] ">
         <p className="italic text-[#696969dc] ">This is me.</p>
       </div>
       <section className="flex flex-col lg:flex-row justify-between items-center lg:items-start w-full max-w-5xl gap-10">
-        <div className="text-center lg:text-left w-fit">
-          <motion.h2
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl font-normal mb-6"
-          >
-            Hi, I&apos;m Ashutosh Tiwari.
+        <div className="text-center lg:text-left w-fit flex flex-col items-center lg:items-start">
+          <motion.h2 className=" mb-6">
+            <TypewriterEffect
+              className="text-[40px] md:text-[50px]  font-normal mb-6"
+              words={[
+                { text: "I'm " },
+                { text: "Ashutosh" },
+                { text: "Tiwari" },
+              ]}
+            />
           </motion.h2>
-          <motion.div
-            ref={buttonRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHoverLeave}
+          <MagnetButton
             onClick={() => {
-              window.open("https://github.com/AshutoshDM1", "_blank");
+              window.open(
+                "https://drive.google.com/file/d/1rxpUnZMB05N8EhgQGDqK6czPLs_ls8CV/view?usp=sharing",
+                "_blank"
+              );
             }}
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            animate={{ x: position.x, y: position.y }}
-            transition={{ 
-              duration: 0.5,
-              x: { duration: 0.2, ease: "easeOut" },
-              y: { duration: 0.2, ease: "easeOut" }
-            }}
-            className="text-white h-[50px] w-[300px] rounded-full cursor-pointer select-none overflow-hidden"
+            width={"18rem"}
+            height={"4rem"}
+            className="bg-[#0A0A0A]"
           >
-            <div className="button h-[100px] w-full flex flex-col">
-              <div className="h-[50px] bg-black flex items-center justify-center gap-4 ">
-                <span>
-                  <MoveUpRight />
-                </span>{" "}
-                Get in Touch
-              </div>
-              <div className="h-[50px] bg-[#f1f1f1] text-black flex items-center justify-center gap-4 ">
-                <span>
-                  <MoveUpRight />
-                </span>{" "}
-                Get in Touch
-              </div>
-            </div>
-          </motion.div>
+            <span className="text-xl md:text-2xl font-medium text-white leading-none">
+              Download Resume
+            </span>
+          </MagnetButton>
         </div>
 
         {/* Right Column */}
@@ -103,7 +58,7 @@ const Devfolio = () => {
             transition={{ duration: 0.5 }}
             className=""
           >
-            I&apos;m a 19-year-old passionate fullstack web developer dedicated
+            I&apos;m a 20-year-old passionate fullstack web developer dedicated
             to turning ideas into creative solutions. I specialize in creating
             seamless and intuitive user experiences.
           </motion.p>

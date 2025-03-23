@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 const Sidebar = () => {
   const socialLinks = [
     {
@@ -23,13 +24,13 @@ const Sidebar = () => {
 
   return (
     <div
-      className="sidebar h-screen w-full 2xl:w-1/3 xl:w-1/2 fixed top-0 right-0 z-[200] bg-white p-8 flex-col justify-between
-    translate-x-[110%] "
+      className="sidebar rounded-l-[100%] h-screen w-full 2xl:w-1/3 xl:w-1/2 fixed top-0 right-0 z-[200] bg-gradient-to-l from-white to-zinc-100 p-8 flex-col justify-between
+    translate-x-[110%] text-black "
     >
       <div className="h-[80%] max-w-[30rem] mx-auto flex justify-center items-center">
         <div className="h-fit flex gap-14 ">
           <div className="flex flex-col items-start justify-start  ">
-            <h2 className="text-black mb-4 text-[22px] font-[khula] font-[300] select-none ">
+            <h2 className=" mb-4 text-[22px] font-[khula] font-[300] select-none ">
               Social
             </h2>
             <nav className="flex flex-col text-[24px] font-[khula] font-[300]">
@@ -38,7 +39,7 @@ const Sidebar = () => {
                   key={link.name}
                   target="_blank"
                   href={link.href}
-                  className={`text-black flex flex-col justify-center group hover:cursor-pointer `}
+                  className={` flex flex-col justify-center group hover:cursor-pointer `}
                 >
                   <span className="relative font-medium text-md">
                     {link.name}
@@ -70,7 +71,7 @@ const Sidebar = () => {
                       },
                     });
                   }}
-                  className="text-black hover:text-gray-600 transition-colors cursor-pointer "
+                  className=" hover:text-gray-600 transition-colors cursor-pointer "
                 >
                   {link.name}
                 </motion.a>
@@ -82,12 +83,11 @@ const Sidebar = () => {
       <div className="mt-auto flex flex-col justify-center items-center ">
         <div className="flex flex-col justify-center items-center">
           <h3 className="text-gray-500 mb-2">Get in touch</h3>
-          <a
-            href="mailto:info@bencodes.de"
-            className="text-black font-[system-ui] text-[18px]  hover:underline transition-colors"
-          >
-            ashutosh0tiwari@gmail.com
-          </a>
+          <TypewriterEffectSmooth
+            cursorClassName="text-gray-500"
+            className="text-[20px] font-[khula] font-[300] "
+            words={[{ text: "ashutosh0tiwari@gmail.com" }]}
+          />
         </div>
       </div>
     </div>
