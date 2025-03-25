@@ -161,7 +161,7 @@ html.lenis body {
   animation-name: drawAndFill;
   animation-duration: 2.5s;
   animation-timing-function: ease-in-out;
-  animation-delay: .5s;
+  animation-delay: 0.8s;
   animation-fill-mode: forwards;
 }
 

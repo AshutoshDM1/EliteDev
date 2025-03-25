@@ -101,16 +101,22 @@ const ProjectShow: React.FC<ReactCompo> = ({
     <div className="projectShow translate-y-[100%] rounded-t-[35%] fixed inset-0 z-[999999] w-full flex flex-col items-center justify-center bg-black text-white px-5">
       <motion.button
         onClick={onClose}
-        className="absolute top-4 right-16 text-white hover:rotate-[180deg] ease-in-out duration-200"
+        className="absolute hidden lg:block top-4 right-16 text-white hover:rotate-[180deg] ease-in-out duration-200"
       >
         <X size={70} />
       </motion.button>
       <div className="h-full max-w-[1000px] mx-auto ">
-        <a href={herf} target="_blank">
-          <div className="sm:mt-[2vh] flex w-full sm:justify-start sm:items-start gap-10 mt-20 items-center justify-center">
+        <a >
+          <div className="mb-10 sm:mt-[2vh] flex w-full justify-between sm:justify-start sm:items-start gap-10 mt-20 items-center md:justify-center">
             <h1 className="text-[48px] sm:text-[72px] lg:text-[96px]  font-[400] font-[Khula] mb-4 select-none cursor-pointer ">
               {heading}
             </h1>
+            <motion.button
+              onClick={onClose}
+              className="text-white block lg:hidden hover:rotate-[180deg] ease-in-out duration-200 self-start"
+            >
+              <X size={60} />
+            </motion.button>
             <MagnetButton
               className="hidden lg:block"
               width={"4rem"}
@@ -118,7 +124,7 @@ const ProjectShow: React.FC<ReactCompo> = ({
               magneticStrength={25}
               magneticContentStrength={50}
             >
-              <ArrowUpRight className="mt-10" size={80} />
+              <ArrowUpRight className="mt-5" size={80} />
             </MagnetButton>
           </div>
         </a>

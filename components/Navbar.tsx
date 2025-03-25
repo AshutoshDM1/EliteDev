@@ -88,52 +88,19 @@ export default function NavBar() {
         magneticContentStrength={50}
         className="bg-[#fff0]  flex justify-center items-center gap-2"
       >
-        <h1
-          onMouseEnter={() => {
-            gsap.to(".boll", {
-              scale: 2,
-              duration: 0.3,
-              translateX: -30,
-              translateY: -20,
-              transformOrigin: "center",
-              ease: "linear",
-            });
-          }}
-          onMouseLeave={() => {
-            gsap.to(".boll", {
-              scale: 1,
-              translateX: -40,
-              translateY: -32,
-              transformOrigin: "center",
-              duration: 0.7,
-              ease: "linear",
-            });
-          }}
-          style={{
-            fontFamily: "Khula",
-            fontStyle: "normal",
-          }}
-          className="navText text-center text-2xl font-[600]  "
-        >
-          At
-        </h1>
       </MagnetButton>
       <motion.div
         onClick={handleSidebarToggle}
         whileHover={!showSidebar ? "hover" : undefined}
-        className="text-center h-full w-[60px] flex flex-col items-center justify-center cursor-pointer gap-2 relative"
+        className="text-center h-full w-[60px]  flex flex-col items-center justify-center cursor-pointer gap-2 relative"
       >
         <motion.div
           initial={{ width: "60px" }}
-          className={`sideline1 border-b-[2px]  ${
-            isFirstPage ? "border-[#ffffff]" : "border-[#000000]"
-          } h-0 w-[60px] absolute translate-y-[-5px] `}
+          className={`sideline1 h-[2px] bg-[#4e4e4e] first-line: w-[60px] absolute translate-y-[-5px] mix-blend-color-burn `}
         />
         <motion.div
           initial={{ width: "60px" }}
-          className={`sideline2 border-b-[2px] ${
-            isFirstPage ? "border-[#ffffff]" : "border-[#000000]"
-          } h-0 w-[60px] absolute translate-y-[5px] `}
+          className={`sideline2 h-[2px] bg-[#4e4e4e] first-line: w-[60px] absolute translate-y-[5px] mix-blend-color-burn `}
         />
       </motion.div>
     </div>

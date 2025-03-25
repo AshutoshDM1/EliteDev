@@ -81,13 +81,15 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="mt-auto flex flex-col justify-center items-center ">
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center gap-2">
           <h3 className="text-gray-500 mb-2">Get in touch</h3>
-          <TypewriterEffectSmooth
+         <div className="" >
+           <TypewriterEffectSmooth
             cursorClassName="text-gray-500"
-            className="text-[20px] font-[khula] font-[300] "
+            className="text-[25px] h-fit font-[khula] font-[300]"
             words={[{ text: "ashutosh0tiwari@gmail.com" }]}
           />
+         </div>
         </div>
       </div>
     </div>

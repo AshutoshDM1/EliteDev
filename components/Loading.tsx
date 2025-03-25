@@ -1,4 +1,3 @@
-import CountUp from "./block/TextAnimations/CountUp/CountUp";
 import LogoSvg from "./LogoSvg";
 
 const Loading = () => {
@@ -12,16 +11,7 @@ const Loading = () => {
         className="loading min-h-screen bg-white w-full fixed z-[99999999999] flex justify-center items-center "
       >
         <LogoSvg />
-        <div className="loading-text absolute right-10 bottom-10 text-[#252525] text-[50px] font-bold ">
-          <CountUp
-            from={0}
-            to={100}
-            separator=","
-            direction="up"
-            duration={2}
-            className="count-up-text"
-          />
-        </div>
+        <div className="loading-text absolute right-10 bottom-10 text-[#252525] text-[50px] font-bold "></div>
       </div>
     </>
   );

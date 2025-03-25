@@ -74,7 +74,7 @@ export default function Connect() {
               </AnimatedText>
             </motion.div>
           </div>
-          <motion.div className="min-h-[20vh] w-[50%] flex flex-col md:flex-row justify-center items-center gap-5 select-none ">
+          <motion.div className="min-h-[20vh] mt-20 mb-10 md:mt-0 w-[50%] flex flex-col md:flex-row justify-center items-center gap-5 select-none ">
             {socialLinks.map((item, index) => (
               <motion.a
                 href={item.href}

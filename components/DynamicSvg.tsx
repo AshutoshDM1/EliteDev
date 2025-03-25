@@ -117,7 +117,7 @@ const DynamicSvg = () => {
         },
       })
       .to(".sideline1", {
-        borderColor: "black",
+
         scrollTrigger: {
           trigger: ".page1",
           start: "top 60%",
@@ -126,7 +126,7 @@ const DynamicSvg = () => {
         },
       })
       .to(".sideline2", {
-        borderColor: "black",
+
         scrollTrigger: {
           trigger: ".page1",
           start: "top 60%",
