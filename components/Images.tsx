@@ -5,6 +5,11 @@ const Images = () => {
         <div className="img1 w-full h-[1000px] flex flex-col">
           <img
             className="w-full h-[200px] object-cover object-center"
+            src="./image6.png"
+            alt="CodeGen"
+          />
+          <img
+            className="w-full h-[200px] object-cover object-center"
             src="./image1.png"
             alt="MangaHaven"
           />
@@ -21,12 +26,7 @@ const Images = () => {
           <img
             className="w-full h-[200px] object-cover object-center"
             src="./image4.png"
-            alt="Portfolio"
-          />
-          <img
-            className="w-full h-[200px] object-cover object-center"
-            src="./image5.png"
-            alt="Portfolio"
+            alt="PrimeWallet"
           />
         </div>
       </div>

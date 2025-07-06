@@ -5,6 +5,12 @@ import gsap from "gsap";
 export default function Portfolio() {
   const projects = [
     {
+      title: "Codegen",
+      imageurl: "image5.png",
+      Line1: "A AI Code Generator Site",
+      Line2: "Create Landing pages, components, etc using AI in seconds",
+    },
+    {
       title: "MangaHaven",
       imageurl: "image1.png",
       Line1: "A Full Stack Next.js Manga Reading Site",

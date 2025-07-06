@@ -18,6 +18,19 @@ type ReactCompo = {
 
 const getProjectColors = (heading: string): { [key: string]: string } => {
   switch (heading) {
+    case "CodeGen":
+      return {
+        "Next.js": "bg-[#FF3366]",
+        "Tailwind CSS": "bg-[#38BDF8]",
+        "Shadcn UI": "bg-[#09090B]",
+        Recoil: "bg-[#3578E5]",
+        "Framer Motion": "bg-[#FF5733]",
+        "Express.js": "bg-[#0a0a0a]",
+        PostgreSQL: "bg-[#336791]",
+        Gemmini: "bg-[#2D3748]",
+        Realtime: "bg-[#336791]",
+        Vercel: "bg-[#2088FF]",
+      };
     case "MangaHaven":
       return {
         "Next.js": "bg-[#FF3366]",
@@ -107,7 +120,7 @@ const ProjectShow: React.FC<ReactCompo> = ({
       </motion.button>
       <div className="h-full max-w-[1000px] mx-auto ">
         <a >
-          <div className="mb-10 sm:mt-[2vh] flex w-full justify-between sm:justify-start sm:items-start gap-10 mt-20 items-center md:justify-center">
+          <div className="sm:mt-[2vh] flex w-full justify-between sm:justify-start sm:items-start gap-10 mt-20 items-center md:justify-center">
             <h1 className="text-[48px] sm:text-[72px] lg:text-[96px]  font-[400] font-[Khula] mb-4 select-none cursor-pointer ">
               {heading}
             </h1>
@@ -213,7 +226,7 @@ const ProjectShow: React.FC<ReactCompo> = ({
             border: "1px solid rgb(77, 128, 237)",
             boxShadow: "rgba(77, 128, 237, 0.25) 0px 0px 16px 8px",
           }}
-          className="w-[100%] justify-self-center p-5 cover mt-[2vh] object-top rounded-2xl select-none  "
+          className="w-[80%] justify-self-center p-5 cover mt-[4vh] object-top rounded-2xl select-none  "
           src={`./${image}`}
           alt=""
         />

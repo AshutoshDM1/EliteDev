@@ -23,6 +23,21 @@ const ProjectList = () => {
     return [
       {
         id: "01",
+        title: "CodeGen",
+        category: "Full Stack Web Development / GenAI",
+        heading: "CodeGen",
+        description:
+          "A AI Code Generator Site, Create Landing pages, components, etc using AI in seconds",
+        frontend: "Next.js, Tailwind CSS , Framer Motion, Zustand",
+        backend:
+          "Express.js, PostgreSQL , Gemmini API , Realtime Streaming",
+        devops: "AWS, Github Actions, Vercel",
+        image: "image6.png",
+        href: "https://codegen.elitedev.tech",
+        github: "https://github.com/AshutoshDM1/CodeGen",
+      },
+      {
+        id: "02",
         title: "MangaHaven",
         category: "Full Stack Web Development / Design / Next.js",
         heading: "MangaHaven",
@@ -32,11 +47,11 @@ const ProjectList = () => {
         backend: "Nextjs Backend, NextAuth, Prisma, PostgreSQL , Cloudinary",
         devops: "Docker, AWS, Github Actions",
         image: "image1.png",
-        href: "https://manga-haven-beta.vercel.app",
+        href: "https://mangahaven.elitedev.tech",
         github: "https://github.com/AshutoshDM1/MangaHaven",
       },
       {
-        id: "02",
+        id: "03",
         title: "Insight AI.",
         category: "Full Stack Web Development / Ai / React",
         heading: "Insight AI",
@@ -50,7 +65,7 @@ const ProjectList = () => {
         github: "https://github.com/AshutoshDM1/InsightAI",
       },
       {
-        id: "03",
+        id: "04",
         title: "Obsy Asency",
         category: "Frontend Development / Animation / GSAP",
         heading: "Obsy Asency",
@@ -63,7 +78,7 @@ const ProjectList = () => {
         github: "https://github.com/AshutoshDM1/Obsy-Agency",
       },
       {
-        id: "04",
+        id: "05",
         title: "PrimeWallet",
         category: "Full Stack Development / Express Backend",
         heading: "PrimeWallet",
@@ -74,19 +89,6 @@ const ProjectList = () => {
         href: "https://prime-wallet-beta.vercel.app/",
         devops: "Not involved",
         github: "https://github.com/AshutoshDM1/PrimeWallet",
-      },
-      {
-        id: "05",
-        title: "Apple Vision Pro",
-        category: "Frontend Development / Clone",
-        heading: "Apple Vision Pro",
-        description: "A responsive clone of the Apple Vision Pro landing page.",
-        frontend: "HTML , CSS , GSAP , ScrollTrigger , Locomotive Scroll",
-        backend: "Not involved",
-        image: "image5.png",
-        href: "https://apple-vision-pro-seven.vercel.app/",
-        devops: "Not involved",
-        github: "https://github.com/AshutoshDM1/Apple-Vision-Pro",
       },
     ];
   }, []);
